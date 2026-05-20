@@ -1,9 +1,9 @@
-# Financial Distress and Household Risk-Taking Behavior
+# Financial Scars and Household Risk-Taking Behavior
 
 ## Abstract
-This project investigates how prior financial distress influences household risk-taking behavior using the 2024 Survey of Consumer Finances (SCF). The analysis examines whether households experiencing financial shocks—such as negative net worth, late payments, bankruptcy, or foreclosure—exhibit systematically more conservative investment behavior.
+This project examines whether prior financial distress is associated with more conservative financial behavior among U.S. households. Using data from the 2024 Survey of Consumer Finances (SCF), the analysis investigates how experiences such as bankruptcy, foreclosure, and late payments influence stock market participation and household risk-taking behavior.
 
-The study applies survey-weighted econometric methods to estimate the relationship between financial distress and stock market participation, equity ownership, and self-reported risk tolerance.
+The study applies survey-weighted logistic regression models to account for the SCF’s complex survey design and produces nationally representative estimates of household financial behavior.
 
 ---
 
@@ -13,111 +13,123 @@ Does prior financial distress predict more conservative household investment beh
 ---
 
 ## Key Contribution
-This project focuses on **revealed financial behavior** rather than self-reported risk preferences, using SCF microdata and survey-weighted logistic regression models to analyze real investment decisions.
+This project focuses on **revealed financial behavior** (actual investment and portfolio choices) rather than self-reported risk preferences, using nationally representative SCF microdata and survey-weighted econometric methods.
 
 ---
 
 ## Data
-The analysis uses the **2024 Survey of Consumer Finances (SCF)**, a nationally representative dataset from the U.S. Federal Reserve.
 
-The SCF contains detailed information on:
-- Household income and net worth  
-- Debt and leverage measures  
-- Stock and equity ownership  
-- Financial distress indicators (bankruptcy, foreclosure, late payments)
+The analysis uses the **2024 Survey of Consumer Finances (SCF)**, a nationally representative dataset produced by the U.S. Federal Reserve.
 
-A composite **financial distress proxy** is constructed using:
-- Negative net worth  
-- Late payments  
-- Bankruptcy (past 5 years)  
+The SCF includes detailed information on:
+- Household income, debt, and net worth
+- Stock and equity ownership
+- Credit constraints and financial distress indicators
+- Demographic and socioeconomic characteristics
+
+A composite **financial distress proxy (“prior-loss indicator”)** is constructed using:
+- Negative net worth
+- Late payments
+- Bankruptcy (past 5 years)
 - Foreclosure (past 5 years)
+
+The dataset is publicly available via the Federal Reserve SCF website.
 
 ---
 
 ## Methodology
-The empirical strategy uses survey-weighted logistic regression models (`svyglm`) to estimate the relationship between financial distress and household financial behavior.
 
-### Outcome variables:
+The empirical analysis uses **survey-weighted logistic regression models** implemented in R using the `survey` package.
+
+### Outcome Variables
 - Stock market participation
 - Equity ownership
 - Willingness to take financial risk
 
-### Key explanatory variable:
-- Financial distress (composite “prior-loss proxy”)
+### Key Independent Variable
+- Financial distress proxy (composite indicator of prior financial shocks)
 
-### Controls:
-- Income and debt (log transformations)
-- Net worth (inverse hyperbolic sine transformation)
+### Controls
+- Income (log transformation)
+- Net worth (IHS transformation)
+- Debt (log transformation)
 - Age and age squared
 - Education, marital status, race, labor force status, number of children
 
-### Estimation approach:
-- Survey-weighted logistic regression
+### Estimation Strategy
+- Survey-weighted logistic regression (`svyglm`)
 - Odds ratio interpretation
-- Predicted probability comparisons across groups
+- Predicted probability comparisons between distressed and non-distressed households
 
 ---
 
-## Key Findings (to be updated with results)
+## Key Findings (to be updated with final results)
+
 - Households experiencing financial distress are less likely to participate in stock markets  
 - Financial shocks are associated with more conservative investment behavior  
-- Effects persist even after controlling for income, wealth, and demographics  
+- Effects persist after controlling for income, wealth, and demographic characteristics  
 
 ---
 
-## Tools & Technologies
+## Software & Tools
+
 - R
-- tidyverse (data wrangling)
-- survey (complex survey design estimation)
+- tidyverse (data manipulation)
+- survey (complex survey estimation)
 - ggplot2 (visualization)
-- broom (model output cleaning)
-- kableExtra (publication-ready tables)
+- broom (model output processing)
+- kableExtra (publication-quality tables)
 
 ---
 
-## Outputs
-The project generates:
-- Descriptive statistics tables
-- Regression tables (odds ratios with significance levels)
-- Predicted probability comparisons
-- Visualizations of investment behavior by distress status
-- Clean analysis dataset for reproducibility
+## Reproducibility
+
+This project is fully reproducible. The analysis script:
+
+- installs required packages automatically
+- processes raw SCF data
+- constructs financial distress measures
+- estimates econometric models
+- generates tables, figures, and output files
+
+All outputs are saved in the `/output/` directory.
+
+To replicate:
+1. Download SCF 2024 data from the Federal Reserve
+2. Place dataset in the project folder
+3. Run `analysis.R` from top to bottom in RStudio
 
 ---
 
-## Project Structure
+## Repository Structure
 financial-scars-household-risk/
 │
 ├── data/
 │ └── Survey of Consumer Finances.csv
-│
 ├── scripts/
 │ └── analysis.R
-│
 ├── output/
 │ ├── figures/
 │ ├── tables/
-│ ├── regression_results.tex
 │ └── datasets/
-│
 ├── README.md
-└── financial-scars-household-risk.Rproj
+└── financial-scars.Rproj
 
 ---
 
-## Limitations
-- Financial distress is proxied using observable indicators rather than longitudinal shock tracking  
-- Cross-sectional analysis limits causal interpretation  
-- Results are conditional on available SCF survey variables  
+## References
+
+- Kahneman, D. & Tversky, A. (1979)
+- Guiso, Sapienza, & Zingales (2008)
+- Lusardi & Mitchell (2014)
+- Mian, Sufi, & Trebbi (2015)
+
+Full bibliography available in `references.bib`.
 
 ---
 
 ## Author
+
 **Todvwa Dlamini**  
 University of Oklahoma  
-Economics (M.A.) & Information Science and Technology (B.S.)
-
----
-
-## License
-MIT Licenser.
+M.A. Economics & B.S. Information Science and Technology
