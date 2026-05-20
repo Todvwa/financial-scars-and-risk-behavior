@@ -5,17 +5,11 @@ This project examines whether prior financial distress is associated with more c
 
 The study applies survey-weighted logistic regression models to account for the SCF’s complex survey design and produces nationally representative estimates of household financial behavior.
 
----
-
 ## Research Question
 Does prior financial distress predict more conservative household investment behavior?
 
----
-
 ## Key Contribution
 This project focuses on **revealed financial behavior** (actual investment and portfolio choices) rather than self-reported risk preferences, using nationally representative SCF microdata and survey-weighted econometric methods.
-
----
 
 ## Data
 
@@ -34,8 +28,6 @@ A composite **financial distress proxy (“prior-loss indicator”)** is constru
 - Foreclosure (past 5 years)
 
 The dataset is publicly available via the Federal Reserve SCF website.
-
----
 
 ## Methodology
 
@@ -61,15 +53,11 @@ The empirical analysis uses **survey-weighted logistic regression models** imple
 - Odds ratio interpretation
 - Predicted probability comparisons between distressed and non-distressed households
 
----
-
 ## Key Findings (to be updated with final results)
 
 - Households experiencing financial distress are less likely to participate in stock markets  
 - Financial shocks are associated with more conservative investment behavior  
 - Effects persist after controlling for income, wealth, and demographic characteristics  
-
----
 
 ## Software & Tools
 
@@ -79,8 +67,6 @@ The empirical analysis uses **survey-weighted logistic regression models** imple
 - ggplot2 (visualization)
 - broom (model output processing)
 - kableExtra (publication-quality tables)
-
----
 
 ## Reproducibility
 
@@ -99,8 +85,6 @@ To replicate:
 2. Place dataset in the project folder
 3. Run `analysis.R` from top to bottom in RStudio
 
----
-
 ## Repository Structure
 financial-scars-household-risk/
 │
@@ -115,8 +99,6 @@ financial-scars-household-risk/
 ├── README.md
 └── financial-scars.Rproj
 
----
-
 ## References
 
 - Kahneman, D. & Tversky, A. (1979)
@@ -125,8 +107,6 @@ financial-scars-household-risk/
 - Mian, Sufi, & Trebbi (2015)
 
 Full bibliography available in `references.bib`.
-
----
 
 ## Author
 
