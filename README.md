@@ -53,7 +53,7 @@ The empirical analysis uses **survey-weighted logistic regression models** imple
 - Odds ratio interpretation
 - Predicted probability comparisons between distressed and non-distressed households
 
-## Key Findings (to be updated with final results)
+## Key Findings
 
 - Households experiencing financial distress are less likely to participate in stock markets  
 - Financial shocks are associated with more conservative investment behavior  
@@ -86,6 +86,7 @@ To replicate:
 3. Run `analysis.R` from top to bottom in RStudio
 
 ## Repository Structure
+```text
 financial-scars-household-risk/
 │
 ├── data/
@@ -98,7 +99,7 @@ financial-scars-household-risk/
 │ └── datasets/
 ├── README.md
 └── financial-scars.Rproj
-
+```
 ## References
 
 - Kahneman, D. & Tversky, A. (1979)
